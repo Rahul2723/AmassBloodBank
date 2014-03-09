@@ -53,9 +53,10 @@ public final class R {
         public static final int activity_user_profile=0x7f030003;
         public static final int activity_user_registration=0x7f030004;
         public static final int contact_us=0x7f030005;
-        public static final int search_donar=0x7f030006;
-        public static final int user_register=0x7f030007;
-        public static final int userprofile=0x7f030008;
+        public static final int forgot_password=0x7f030006;
+        public static final int search_donar=0x7f030007;
+        public static final int user_register=0x7f030008;
+        public static final int userprofile=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f080000;
