@@ -117,7 +117,23 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/button_gradient"
-            android:text="   Submit   " />
+            android:text="   Submit   " 
+            android:textColor="#FFFFFFFF"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_gradient"
+            android:text="   Back   "
+            android:textColor="#FFFFFFFF"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
     </LinearLayout>
     
