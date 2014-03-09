@@ -44,35 +44,38 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
-                    android:text="Raj Chowdhury"
+                    android:text="Raj Chowdhury Raj Chowdhury "
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
                     android:text="Uttara, Dhaka" />
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
                     android:text="Group:" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/button1"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1.5"
-                android:background="@drawable/button_gradient"
-                android:onClick="callNow"
-                android:text="Call" />
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_gradient"
+                    android:onClick="callNow"
+                    android:text="01919816473" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
