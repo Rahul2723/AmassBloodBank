@@ -1,86 +1,67 @@
 
-<!-- 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-     >
-</RelativeLayout>
--->
 
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/header_gradient"
-    
-    >
+    android:background="@drawable/header_gradient" >
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" 
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        
          >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_gradient" >
+				<LinearLayout
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:layout_weight="1"
+				    android:id="@+id/mainLayout" 
+				    android:orientation="vertical" >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1.5"
-                android:orientation="vertical" >
+					<LinearLayout
+					    android:layout_width="match_parent"
+					    android:layout_height="wrap_content"
+					    android:layout_weight="1"
+					    android:orientation="vertical" >
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Raj Chowdhury Raj Chowdhury "
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+					    <TextView
+					        android:id="@+id/textView1"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:text="People Near By .." />
+					</LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Uttara, Dhaka" />
+				</LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Group:" />
+				<LinearLayout
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="1"
+				    android:orientation="vertical" >
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/button_gradient"
-                    android:onClick="callNow"
-                    android:text="01919816473" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
+				    <Button
+				        android:id="@+id/button2"
+				        style="?android:attr/buttonStyleSmall"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:layout_gravity="center"
+				        android:layout_marginBottom="5dp"
+				        android:layout_marginLeft="5dp"
+				        android:layout_marginRight="5dp"
+				        android:layout_marginTop="20dp"
+				        android:background="@drawable/button_gradient"
+				        android:onClick="goBack"
+				        android:text="      Back      "
+				        android:textColor="#FFFFFFFF"
+				        android:textStyle="bold"
+				        android:typeface="serif" />
+				</LinearLayout>
+        
     </LinearLayout>
+    
+    
     
 
 </ScrollView>
-

@@ -40,6 +40,16 @@ public class HttpsClient {
 		this.exceptionMsg = "" ;
 	}
 	
+	public HttpsClient( ForgotPasswordActivity cParam ) {
+		this.parentContext = cParam ;
+		this.exceptionMsg = "" ;
+	}
+	
+	public HttpsClient( ContactUsActivity cParam ) {
+		this.parentContext = cParam ;
+		this.exceptionMsg = "" ;
+	}
+	
 	public String getExceptionMessage() {
 		return this.exceptionMsg ;
 	}

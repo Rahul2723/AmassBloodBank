@@ -102,8 +102,11 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#FFFFFFFF"
                 android:textStyle="bold"
+                android:onClick="forgotPassword"
+                android:clickable="true"
                 android:typeface="serif" />
-            <TextView
+
+            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,10 +116,29 @@
                 android:text="Contact Us"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#FFFFFFFF"
+                android:onClick="contactUs"
                 android:textStyle="bold"
+                android:clickable="true"
                 android:typeface="serif" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button3"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_gradient"
+            android:gravity="center"
+            android:onClick=" "
+            android:text="     Quit     "
+            android:textColor="#FFFFFFFF"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        
+         
 
     </LinearLayout>
 

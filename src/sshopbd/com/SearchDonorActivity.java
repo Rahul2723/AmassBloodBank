@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,12 +24,26 @@ public class SearchDonorActivity extends Activity {
 		getActionBar().setTitle( ProjectConstants.getProjectName() ) ;
 	}
 	
+	public boolean onOptionsItemSelected( MenuItem item ) {
+	    switch( item.getItemId() ) {
+	    case R.id.action_settings :
+	        this.logout() ;
+	        return true ;
+	    default :
+	        return super.onOptionsItemSelected( item ) ;
+	    }
+	}
+	
+	public void logout() {
+		this.finish() ;
+	}
+	
 	protected void onCreate( Bundle savedInstanceState ) {
 		super.onCreate( savedInstanceState ) ;
 		setContentView( R.layout.activity_search_donor ) ;
 		this.commonInit() ;
 		
-		this.bt1 = ( Button ) findViewById( R.id.button1 ) ;
+		this.bt1 = ( Button ) findViewById( R.id.button3 ) ;
 		this.sp1 = ( Spinner ) findViewById( R.id.spinner1 ) ;
 		this.sp2 = ( Spinner ) findViewById( R.id.spinner2 ) ;
 	
@@ -48,10 +63,15 @@ public class SearchDonorActivity extends Activity {
 	}
 	
 	public void doSearchDonor( View v ) {
+		try {
 		Intent iObj = new Intent( getBaseContext() , UserProfileActivity.class ) ;
 		iObj.putExtra( "district", this.sp1.getSelectedItem().toString() ) ;
 		iObj.putExtra( "blood_group", this.sp2.getSelectedItem().toString() ) ;
 		startActivity( iObj ) ;
+		}
+		catch( Exception ex ) {
+			AlertDialogHandler.showDialog( this , "Error!", ex.toString() ) ;
+		}
 	}
 
 }

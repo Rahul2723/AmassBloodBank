@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -20,9 +21,23 @@ public class UserRegistrationActivity extends Activity {
 		getActionBar().setTitle( ProjectConstants.getProjectName() ) ;
 	}
 	
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_user_registration);
+	public boolean onOptionsItemSelected( MenuItem item ) {
+	    switch( item.getItemId() ) {
+	    case R.id.action_settings :
+	        this.logout() ;
+	        return true ;
+	    default :
+	        return super.onOptionsItemSelected( item ) ;
+	    }
+	}
+	
+	public void logout() {
+		this.finish() ;
+	}
+	
+	protected void onCreate( Bundle savedInstanceState ) {
+		super.onCreate( savedInstanceState ) ;
+		setContentView( R.layout.activity_user_registration ) ;
 		this.className = "UserRegistrationActivity" ;
 		this.commonInit() ;
 		this.init() ;
@@ -51,53 +66,6 @@ public class UserRegistrationActivity extends Activity {
 		return true;
 	}
 	
-	private boolean checkEmail( String data ) {
-		int i , len , j , cn , k ;
-		boolean fl ;
-		len = data.length() ;
-		fl = false ;
-		j = -1 ;
-		k = -1 ;
-		for( i = 0 ; i < len ; i++ ) {
-			if( data.charAt( i ) == '@' ) {
-				if( i != 0 ) {
-					fl = true ;
-					j = i ;
-					break ;
-				}
-			}
-		}
-		if( fl == false ) {
-			return fl ;
-		}
-		cn = 0 ;
-		for( i = 0 ; i < len ; i++ ) {
-			if( data.charAt( i ) == '.' ) {
-				cn++ ;
-				k = i ;
-			}
-		}
-		if( cn == 0 ) {
-			return false ;
-		}
-		return true ;
-	}
-	
-	private boolean checkPhoneNumber( String numberParam ) {
-		int i , len ;
-		len = numberParam.length() ;
-		for( i = 0 ; i < len ; i++ ) {
-			if( numberParam.charAt( i ) >= '0' && numberParam.charAt( i ) <= '9' ) {
-			}
-			else {
-				return false ;
-			}
-		}
-		if( len >= 7 && len <= 11 ) {
-			return true ;
-		}
-		return false ;
-	}
 	public void doRegister( View v ) {
 		EncryptionMethods emObj ;
 		String response , urlParameters ;
@@ -126,13 +94,28 @@ public class UserRegistrationActivity extends Activity {
 				break ;
 			}
 		}
-		if( this.checkEmail( arr[ 5 ] ) == false ) {
+		if( DataFormatHandler.checkEmail( arr[ 5 ] ) == false ) {
 			AlertDialogHandler.showDialog( this , "Error!" , "Invalid Email Address!" ) ;
 			fl = false ;
 		}
-		else if( this.checkPhoneNumber( arr[ 4 ] ) == false ) {
+		else if( DataFormatHandler.checkPhoneNumber( arr[ 4 ] ) == false ) {
 			AlertDialogHandler.showDialog( this , "Error!" , "Invalid Phone Number!" ) ;
 			fl = false ;
+		}
+		{
+			SendApiRequest sarObj = new SendApiRequest() ;
+			sarObj.setActivity( this ) ;
+			urlParameters = "1=" + arr[ 5 ] ;
+			response = sarObj.sendRequest( this , urlParameters , "checkEmail.php" , "Error occurred in " + this.className + " class." , "Registration Module!" ) ;
+			if( response == null ) {
+				fl = false ;  
+			}
+			else if( response.charAt( 0 ) == 'o' && response.charAt( 1 ) == 'k' ) {
+			}
+			else {
+				AlertDialogHandler.showDialog( this , "Registration Module!" , "Email address already exists!" ) ;
+				fl = false ;
+			}
 		}
 		if( fl == true ) {
 			for( i = 0 ; i < cn ; i++ ) {

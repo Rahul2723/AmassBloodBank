@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +27,7 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu( Menu menu ) {
-		getMenuInflater().inflate( R.menu.main , menu ) ;
+		//getMenuInflater().inflate( R.menu.main , menu ) ;
 		return true;
 	}
 	
@@ -58,6 +59,16 @@ public class MainActivity extends Activity {
 		else {
 			AlertDialogHandler.showDialog( this , "Login Module!" , "Wrong email and password combination!" ) ;
 		}
+	}
+	
+	public void forgotPassword( View v ) {
+		Intent iObj = new Intent( getBaseContext() , ForgotPasswordActivity.class ) ;
+		startActivity( iObj ) ;
+	}
+	
+	public void contactUs( View v ) {
+		Intent iObj = new Intent( getBaseContext() , ContactUsActivity.class ) ;
+		startActivity( iObj ) ;
 	}
 }
 

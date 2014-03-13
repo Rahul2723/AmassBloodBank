@@ -9,6 +9,8 @@ public final class SendApiRequest {
     private SearchDonorActivity sdaObj ;
     private UserRegistrationActivity uraObj ;
     private UserProfileActivity upaObj ;
+    private ForgotPasswordActivity fpObj ;
+    private ContactUsActivity cuaObj ;
     private String exceptionMsg ;
     private HttpsClient HS ;
     private boolean prerequisiteFulfilled ;
@@ -44,6 +46,18 @@ public final class SendApiRequest {
 	public void setActivity( UserProfileActivity upaObjParam ) {
 		this.upaObj = upaObjParam ;
 		this.HS = new HttpsClient( this.upaObj ) ;
+		this.prerequisiteFulfilled = true ;
+	}
+	
+	public void setActivity( ForgotPasswordActivity maObjParam ) {
+		this.fpObj = maObjParam ;
+		this.HS = new HttpsClient( this.fpObj ) ;
+		this.prerequisiteFulfilled = true ;
+	}
+	
+	public void setActivity( ContactUsActivity cuaObjObjParam ) {
+		this.cuaObj = cuaObjObjParam ;
+		this.HS = new HttpsClient( this.cuaObj ) ;
 		this.prerequisiteFulfilled = true ;
 	}
 	
